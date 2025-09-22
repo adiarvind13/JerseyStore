@@ -1,0 +1,15 @@
+
+---
+
+✅ Key things you can include in any README:
+1. **Project name & description**  
+2. **Features / functionality**  
+3. **How to run or install**  
+4. **Tech used**  
+5. **Screenshots (optional)**  
+6. **Contributing instructions**  
+7. **License info**
+
+---
+
+If you want, I can **write a minimal, ready-to-copy README.md specifically for your JerseyStore project** that looks neat on GitHub. Do you want me to do that?
