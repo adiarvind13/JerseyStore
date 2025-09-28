@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - JerseyStore</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7fcfa;
+      color: #111;
+      padding-top: 80px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background: rgba(255, 255, 255, 0.45);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+      color: black;
+    }
+
+    .logo-box {
+      background: #111;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .navbar ul li a.active {
+      color: #111;
+      font-weight: bold;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .search {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+    }
+
+    .cart {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* Login Page Specific Styles */
+    .login-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 80px); /* Adjust for navbar height */
+      padding: 20px;
+    }
+
+    .login-container, .register-container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      display: none; /* Hide both by default */
+    }
+
+    .login-container.active, .register-container.active {
+        display: block; /* Show active form */
+    }
+
+    .login-container h2, .register-container h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .form-group input, .form-group select {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .btn.primary {
+      background: black;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    .btn.primary:hover {
+      background: #333;
+    }
+    
+    .link-text {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .link-text a {
+        color: #007bff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .error-message {
+      color: #e63946;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .success-message {
+      color: #2a9d8f;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: #0a0a1a;
+      color: #fff;
+      padding: 60px;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer .logo {
+      font-weight: bold;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .footer .logo-box {
+      background: #fff;
+      color: #111;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 8px;
+    }
+
+    .footer-about p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .socials i {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .socials i:hover {
+      color: #1da1f2;
+    }
+
+    .footer-links h4,
+    .footer-contact h4 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links ul li a:hover {
+      color: #fff;
+    }
+
+    .footer-contact p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .footer-contact i {
+      margin-right: 8px;
+      color: #fff;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: #bbb;
+    }
+
+    .footer-policies a {
+      color: #bbb;
+      margin-left: 20px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-policies a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <a href="homepage.html" class="logo"><div ><span class="logo-box">JS</span> JerseyStore</div></a>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li><a href="premier-league.html">Premier League</a></li>
+        <li><a href="laliga.html">La Liga</a></li>
+        <li><a href="seriea.html">Serie A</a></li>
+        <li><a href="bundesliga.html">Bundesliga</a></li>
+        <li><a href="special.html">Special Editions</a></li>
+        <li><a href="login.html" class="active">Login</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <input type="text" placeholder="Search jerseys..." class="search"/>
+      <div class="cart">
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="login-page">
+    <div class="login-container active" id="login-container">
+      <h2>Log In</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="login-email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="login-password" name="password" required>
+        </div>
+        <button type="submit" class="btn primary">Login</button>
+        <p class="error-message" id="login-error-message"></p>
+      </form>
+      <p class="link-text">Don't have an account? <a id="show-register">Register here</a></p>
+    </div>
+
+    <div class="register-container" id="register-container">
+        <h2>Register</h2>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="role">Select Role</label>
+                <select id="role" name="role" required>
+                    <option value="user">User</option>
+                    <option value="owner">Owner</option>
+                </select>
+            </div>
+            <button type="submit" class="btn primary">Register</button>
+            <p class="success-message" id="register-success-message"></p>
+            <p class="error-message" id="register-error-message"></p>
+        </form>
+        <p class="link-text">Already have an account? <a id="show-login">Login here</a></p>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo"><span class="logo-box">JS</span> JerseyStore</div>
+        <p>Your trusted source for authentic football jerseys from the world's top teams and leagues.</p>
+        <div class="socials">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-youtube"></i>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns & Exchanges</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Premier League</a></li>
+          <li><a href="#">La Liga</a></li>
+          <li><a href="#">Serie A</a></li>
+          <li><a href="#">Bundesliga</a></li>
+          <li><a href="#">National Teams</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p><i class="fa-solid fa-envelope"></i> support@jerseystore.com</p>
+        <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+        <p><i class="fa-solid fa-location-dot"></i> 123 Football St, Sports City</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 JerseyStore. All rights reserved.</p>
+      <div class="footer-policies">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Local storage for user credentials
+    let owners = JSON.parse(localStorage.getItem('owners')) || [];
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Pre-defined admin
+    const admin = { email: "admin@jerseystore", password: "admin@jerseystore" };
+
+    // DOM elements
+    const loginContainer = document.getElementById('login-container');
+    const registerContainer = document.getElementById('register-container');
+    const showRegisterLink = document.getElementById('show-register');
+    const showLoginLink = document.getElementById('show-login');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const loginErrorMessage = document.getElementById('login-error-message');
+    const registerErrorMessage = document.getElementById('register-error-message');
+    const registerSuccessMessage = document.getElementById('register-success-message');
+
+    // Toggle between login and registration forms
+    showRegisterLink.addEventListener('click', () => {
+        loginContainer.classList.remove('active');
+        registerContainer.classList.add('active');
+        loginErrorMessage.textContent = '';
+        registerErrorMessage.textContent = '';
+        registerSuccessMessage.textContent = '';
+    });
+
+    showLoginLink.addEventListener('click', () => {
+        registerContainer.classList.remove('active');
+        loginContainer.classList.add('active');
+        loginErrorMessage.textContent = '';
+        registerErrorMessage.textContent = '';
+        registerSuccessMessage.textContent = '';
+    });
+
+    // Login logic
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        loginErrorMessage.textContent = '';
+
+        // Check admin credentials
+        if (email === admin.email && password === admin.password) {
+            window.location.href = 'admin.html';
+            return;
+        }
+
+        // Check owner credentials
+        const owner = owners.find(o => o.email === email && o.password === password);
+        if (owner) {
+            window.location.href = 'owner.html';
+            return;
+        }
+
+        // Check user credentials
+        const user = users.find(u => u.email === email && u.password === password);
+        if (user) {
+            window.location.href = 'homepage.html';
+            return;
+        }
+
+        // Handle invalid credentials
+        loginErrorMessage.textContent = 'Invalid email or password.';
+    });
+
+    // Registration logic
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('reg-email').value;
+        const password = document.getElementById('reg-password').value;
+        const role = document.getElementById('role').value;
+        registerErrorMessage.textContent = '';
+        registerSuccessMessage.textContent = '';
+
+        // Check if user already exists
+        const emailExists = [...owners, ...users].some(u => u.email === email);
+        if (emailExists) {
+            registerErrorMessage.textContent = 'Email already registered. Please login instead.';
+            return;
+        }
+
+        const newUser = { email, password };
+        if (role === 'owner') {
+            owners.push(newUser);
+            localStorage.setItem('owners', JSON.stringify(owners));
+        } else {
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        registerSuccessMessage.textContent = 'Registration successful! You can now log in.';
+        registerForm.reset();
+    });
+  </script>
+</body>
+</html>
