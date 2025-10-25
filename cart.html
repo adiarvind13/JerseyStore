@@ -7,6 +7,114 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
+<style>
+
+/* Cart Page Styles */
+.cart-page {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cart-page h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  justify-content: space-between;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: contain;
+  margin-right: 20px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-details h3 {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.item-details .item-price {
+  font-weight: bold;
+  color: #555;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background: #e63946;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.total-price-box {
+  display: flex;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.checkout-btn {
+  padding: 15px 30px;
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: #777;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+</style>
 </head>
 <body>
   <!-- Navbar -->
@@ -19,12 +127,19 @@
         <li><a href="laliga.html">La Liga</a></li>
         <li><a href="seriea.html">Serie A</a></li>
         <li><a href="bundesliga.html">Bundesliga</a></li>
-         <li><a href="special.html">Special Editions</a></li>
+         <li><a href="retro.html">Retro</a></li>
       </ul>
     </nav>
     <div class="nav-right">
       <input type="text" placeholder="Search jerseys..." class="search"/>
-      <div class="cart"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+      
+      <div class="cart">
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+</div>
+
+      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
+    </div>
+
     </div>
   </header>
 
@@ -39,7 +154,7 @@
         <p>Total:</p>
         <p class="total-price">$0.00</p>
       </div>
-      <a href="checkout.html" class="btn primary checkout-btn">Proceed to Checkout</a>
+      <a href="checkout.html" id="checkout">Proceed to Checkout</a>
     </div>
   </section>
 
@@ -70,10 +185,10 @@
         <h4>Categories</h4>
         <ul>
           <li><a href="premier-league.html">Premier League</a></li>
-        <li><a href="laliga.html">La Liga</a></li>
-        <li><a href="seriea.html">Serie A</a></li>
-        <li><a href="bundesliga.html">Bundesliga</a></li>
-         <li><a href="special.html">Special Editions</a></li>
+          <li><a href="laliga.html">La Liga</a></li>
+          <li><a href="seriea.html">Serie A</a></li>
+          <li><a href="bundesliga.html">Bundesliga</a></li>
+          <li><a href="retro.html">Retro</a></li>
         </ul>
       </div>
       <div class="footer-contact">
@@ -84,7 +199,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 JerseyStore. All rights reserved.</p>
+      <p>© 2025 JerseyStore. All rights reserved.</p>
       <div class="footer-policies">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>

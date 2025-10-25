@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
+   <script src="Storelogic.js"></script>
   <!-- Navbar -->
   <header class="navbar">
+   
     <div class="logo"><span class="logo-box">JS</span> JerseyStore</div>
     <nav>
       <ul>
@@ -18,13 +20,21 @@
         <li><a href="laliga.html">La Liga</a></li>
         <li><a href="seriea.html">Serie A</a></li>
         <li><a href="bundesliga.html"  class="active">Bundesliga</a></li>
-         <li><a href="special.html">Special Editions</a></li>
+         <li><a href="retro.html">Retro</a></li>
       </ul>
     </nav>
     <div class="nav-right">
       <input type="text" placeholder="Search jerseys..." class="search"/>
-      <div class="cart"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+      
+      <div class="cart">
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+</div>
+
+      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
     </div>
+
+    </div>
+  </div>
   </header>
   <!-- Hero -->
   <section class="hero bundesliga-hero">
@@ -46,6 +56,7 @@
       <button class="btn primary">Add to Cart</button>
     </div>
     <div class="card">
+      <div class="badge new">New</div>
       <img src="images/moukoko.webp" alt="Borussia Dortmund Jersey">
       <h3>Borussia Dortmund Home Jersey 2024/25</h3>
       <p class="price">$82.99 <span class="old-price">$110</span></p>
@@ -61,7 +72,6 @@
     </div>
   </div>
 </section>
-
  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
@@ -89,12 +99,11 @@
         <h4>Categories</h4>
         <ul>
           <li><a href="premier-league.html">Premier League</a></li>
-        <li><a href="laliga.html">La Liga</a></li>
-        <li><a href="seriea.html">Serie A</a></li>
-        <li><a href="bundesliga.html">Bundesliga</a></li>
-         <li><a href="special.html">Special Editions</a></li>
+          <li><a href="laliga.html">La Liga</a></li>
+          <li><a href="seriea.html">Serie A</a></li>
+          <li><a href="bundesliga.html">Bundesliga</a></li>
+          <li><a href="retro.html">Retro</a></li>
         </ul>
-
       </div>
       <div class="footer-contact">
         <h4>Contact Us</h4>
@@ -112,4 +121,3 @@
       </div>
     </div>
   </footer>
-<script src="Storelogic.js"></script>

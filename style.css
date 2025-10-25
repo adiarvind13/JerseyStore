@@ -1,81 +1,3 @@
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f7fcfa;
-  color: #111;
-  padding-top: 80px;
-}
-
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 60px;
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.logo-box {
-  background: #111;
-  color: #fff;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-right: 5px;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.navbar ul li a.active {
-  color: #111;
-  font-weight: bold;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.search {
-  padding: 8px 12px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-}
-
-.cart {
-  font-size: 20px;
-  cursor: pointer;
-}
-
 /* Hero Section */
 .hero {
   display: flex;
@@ -83,6 +5,16 @@ body {
   justify-content: space-between;
   padding: 40px;
   gap: 40px; /* adds spacing between text and image */
+}
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .hero-text {
@@ -225,9 +157,9 @@ body {
   color: #f0f0f0;
 }
 
-/* Special Hero Section */
+/* Retro Hero Section */
 
-.special-hero {
+.retro-hero {
   display: flex;
   align-items: center;       
   justify-content: center;   
@@ -242,19 +174,19 @@ body {
   position: relative;
 }
 
-.special-hero .hero-text {
+.retro-hero .hero-text {
   position: relative;
   z-index: 1;
   max-width: 700px; 
 }
 
-.special-hero h1 {
+.retro-hero h1 {
   font-size: 3.2rem;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-.special-hero  p {
+.retro-hero  p {
   font-size: 1.3rem;
   color: #f0f0f0;
 }
@@ -304,10 +236,6 @@ body {
   margin-bottom: 15px;
 }
 
-
-
-
-
 .buttons {
   margin: 20px 0;
 }
@@ -321,89 +249,6 @@ body {
   cursor: pointer;
   font-size: 1rem;
 }
-
-.hero-image {
-  flex: 1;
-  text-align: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-
-/* Featured Jerseys */
-.featured {
-  text-align: center;
-  padding: 60px;
-  background: #fff;
-}
-
-.featured h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.featured .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.jersey-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  text-align: left;
-  position: relative;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #888;
-  font-size: 14px;
-  margin-left: 8px;
-}
-
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.badge.hot { background: #ff6600; }
-.badge.sale { background: #e63946; }
-.badge.new { background: #2a9d8f; }
-.badge.best { background: #f4a261; }
 
 /* Shop by League */
 .shop-by-league {
@@ -420,6 +265,29 @@ body {
 .shop-by-league .subtitle {
   color: #666;
   margin-bottom: 40px;
+}
+.shop-by-league .league-card a {
+  text-decoration: none;   /* remove underline */
+  color: inherit;          /* inherit normal text color */
+  display: block;          /* make the whole card clickable */
+  }
+
+.shop-by-league .league-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.shop-by-league .league-card h3 {
+  font-size: 18px;
+  margin: 5px 0;
+  color: #111; /* normal text color */
+}
+
+.shop-by-league .league-card p {
+  font-size: 14px;
+  color: #555; /* normal subtitle color */
 }
 
 .league-grid {
@@ -704,819 +572,6 @@ body {
 .footer-policies a:hover {
   color: #fff;
 }
-
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f7fcfa;
-  color: #111;
-  padding-top: 80px;
-}
-
-/* Navbar */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 60px;
-  background: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.logo-box {
-  background: #111;
-  color: #fff;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-right: 5px;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-  gap: 25px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.navbar ul li a.active {
-  color: #111;
-  font-weight: bold;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.search {
-  padding: 8px 12px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-}
-
-.cart {
-  font-size: 20px;
-  cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px;
-  gap: 40px; /* adds spacing between text and image */
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-text h1 {
-  font-size: 2.8rem;
-  line-height: 1.2;
-}
-
-.hero-text p {
-  margin: 15px 0;
-  color: #555;
-}
-.premier-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/premier\ leage\ page.webp") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.premier-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.premier-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.premier-hero p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-.laliga-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/laliga.jpg") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.laliga-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.laliga-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.laliga-hero p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-.seriea-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/seriea.webp") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.seriea-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.seriea-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.seriea-hero p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-.bundesliga-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/bundesliga1.jpeg") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.bundesliga-hero  .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.bundesliga-hero  h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.bundesliga-hero  p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-/* Special Hero Section */
-
-.special-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/iconic.webp") no-repeat center -280px;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.special-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.special-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.special-hero  p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-
-.jerseys {
-  padding: 60px;
-  text-align: center;
-}
-
-.jerseys h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.jersey-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.jersey-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-}
-
-.jersey-card:hover {
-  transform: translateY(-5px);
-}
-
-.jersey-card img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.jersey-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.jersey-card p {
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-
-
-
-
-.buttons {
-  margin: 20px 0;
-}
-
-.btn.primary {
-  background: black;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.hero-image {
-  flex: 1;
-  text-align: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-
-/* Featured Jerseys */
-.featured {
-  text-align: center;
-  padding: 60px;
-  background: #fff;
-}
-
-.featured h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.featured .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.jersey-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  text-align: left;
-  position: relative;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #888;
-  font-size: 14px;
-  margin-left: 8px;
-}
-
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.badge.hot { background: #ff6600; }
-.badge.sale { background: #e63946; }
-.badge.new { background: #2a9d8f; }
-.badge.best { background: #f4a261; }
-
-/* Shop by League */
-.shop-by-league {
-  text-align: center;
-  padding: 60px;
-  background: #f7fcfa;
-}
-
-.shop-by-league h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.shop-by-league .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.league-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-}
-
-.league-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
-}
-
-.league-card:hover {
-  transform: translateY(-5px);
-}
-
-.league-card img {
-  width: 100px;
-  margin-bottom: 15px;
-}
-
-/* Why Choose */
-.why-choose {
-  text-align: center;
-  padding: 60px;
-  background: #fff;
-}
-
-.why-choose h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.why-choose .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 25px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.why-card {
-  background: #f7fcfa;
-  border-radius: 12px;
-  padding: 25px 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
-}
-
-.why-card:hover {
-  transform: translateY(-5px);
-}
-
-.why-card i {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-/* Testimonials Section */
-.testimonials {
-  text-align: center;
-  padding: 60px;
-  background: #f7fcfa;
-}
-
-.testimonials h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.testimonials .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
-  gap: 25px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.testimonial-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  text-align: left;
-}
-
-.stars {
-  color: #f4a261;
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.review {
-  font-size: 14px;
-  margin-bottom: 20px;
-  color: #555;
-}
-
-.author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.avatar {
-  background: #111;
-  color: #fff;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-}
-
-/* Community Section */
-.community {
-  text-align: center;
-  padding: 60px;
-  background: #111;
-  color: #fff;
-}
-
-.community h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
-}
-
-.community p {
-  margin-bottom: 25px;
-  color: #ccc;
-}
-
-.subscribe-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.subscribe-form input {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  width: 280px;
-}
-
-.subscribe-form button {
-  background: #fff;
-  color: #111;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Footer */
-.footer {
-  background: #0a0a1a;
-  color: #fff;
-  padding: 60px;
-  margin-top: 40px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer .logo {
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.footer .logo-box {
-  background: #fff;
-  color: #111;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-right: 8px;
-}
-
-.footer-about p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  color: #ccc;
-}
-
-.socials {
-  display: flex;
-  gap: 12px;
-  font-size: 18px;
-  color: #fff;
-}
-
-.socials i {
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.socials i:hover {
-  color: #1da1f2;
-}
-
-.footer-links h4,
-.footer-contact h4 {
-  font-size: 16px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.footer-links ul {
-  list-style: none;
-}
-
-.footer-links ul li {
-  margin-bottom: 10px;
-}
-
-.footer-links ul li a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-
-.footer-links ul li a:hover {
-  color: #fff;
-}
-
-.footer-contact p {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #ccc;
-}
-
-.footer-contact i {
-  margin-right: 8px;
-  color: #fff;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  font-size: 13px;
-  color: #bbb;
-}
-
-.footer-policies a {
-  color: #bbb;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-policies a:hover {
-  color: #fff;
-}
-
-/* Cart Page Styles */
-.cart-page {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.cart-page h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-.cart-items {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  justify-content: space-between;
-}
-
-.cart-item img {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  object-fit: contain;
-  margin-right: 20px;
-}
-
-.item-details {
-  flex-grow: 1;
-}
-
-.item-details h3 {
-  font-size: 1.2rem;
-  text-align: left;
-}
-
-.item-details .item-price {
-  font-weight: bold;
-  color: #555;
-  margin-top: 5px;
-  text-align: left;
-}
-
-.item-quantity {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.quantity-btn {
-  width: 30px;
-  height: 30px;
-  background: #eee;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.remove-btn {
-  background: #e63946;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 20px;
-}
-
-.cart-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
-  padding: 20px;
-  border-top: 2px solid #ddd;
-}
-
-.total-price-box {
-  display: flex;
-  gap: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.checkout-btn {
-  padding: 15px 30px;
-}
-
-.empty-cart-message {
-  text-align: center;
-  color: #777;
-  font-size: 1.2rem;
-  margin-top: 40px;
-}
-
     /* General Reset */
 * {
   margin: 0;
@@ -1593,635 +648,7 @@ body {
 .cart {
   font-size: 20px;
   cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px;
-  gap: 40px; /* adds spacing between text and image */
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-text h1 {
-  font-size: 2.8rem;
-  line-height: 1.2;
-}
-
-.hero-text p {
-  margin: 15px 0;
-  color: #555;
-}
-.premier-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/premier\ leage\ page.webp") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.premier-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.premier-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.premier-hero p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-.laliga-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/laliga.jpg") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.laliga-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.laliga-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.laliga-hero p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-.seriea-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/seriea.webp") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.seriea-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.seriea-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.seriea-hero p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-.bundesliga-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/bundesliga1.jpeg") no-repeat center top;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.bundesliga-hero  .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.bundesliga-hero  h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.bundesliga-hero  p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-/* Special Hero Section */
-
-.special-hero {
-  display: flex;
-  align-items: center;       
-  justify-content: center;   
-  text-align: center;
-  padding: 0 20px;
-  background: 
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("images/iconic.webp") no-repeat center -280px;  /* shifted to top */
-  background-size: cover;  
-  color: white;
-  min-height: 435px;       
-  position: relative;
-}
-
-.special-hero .hero-text {
-  position: relative;
-  z-index: 1;
-  max-width: 700px; 
-}
-
-.special-hero h1 {
-  font-size: 3.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.special-hero  p {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-}
-
-
-.jerseys {
-  padding: 60px;
-  text-align: center;
-}
-
-.jerseys h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.jersey-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
-
-.jersey-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-}
-
-.jersey-card:hover {
-  transform: translateY(-5px);
-}
-
-.jersey-card img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.jersey-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.jersey-card p {
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-
-
-
-
-.buttons {
-  margin: 20px 0;
-}
-
-.btn.primary {
-  background: black;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.hero-image {
-  flex: 1;
-  text-align: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-
-/* Featured Jerseys */
-.featured {
-  text-align: center;
-  padding: 60px;
-  background: #fff;
-}
-
-.featured h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.featured .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.jersey-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  text-align: left;
-  position: relative;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #888;
-  font-size: 14px;
-  margin-left: 8px;
-}
-
-.badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  color: #fff;
-  font-weight: bold;
-}
-
-.badge.hot { background: #ff6600; }
-.badge.sale { background: #e63946; }
-.badge.new { background: #2a9d8f; }
-.badge.best { background: #f4a261; }
-
-/* Shop by League */
-.shop-by-league {
-  text-align: center;
-  padding: 60px;
-  background: #f7fcfa;
-}
-
-.shop-by-league h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.shop-by-league .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.league-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 25px;
-}
-
-.league-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
-}
-
-.league-card:hover {
-  transform: translateY(-5px);
-}
-
-.league-card img {
-  width: 100px;
-  margin-bottom: 15px;
-}
-
-/* Why Choose */
-.why-choose {
-  text-align: center;
-  padding: 60px;
-  background: #fff;
-}
-
-.why-choose h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.why-choose .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 25px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.why-card {
-  background: #f7fcfa;
-  border-radius: 12px;
-  padding: 25px 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
-}
-
-.why-card:hover {
-  transform: translateY(-5px);
-}
-
-.why-card i {
-  font-size: 28px;
-  margin-bottom: 12px;
-}
-
-/* Testimonials Section */
-.testimonials {
-  text-align: center;
-  padding: 60px;
-  background: #f7fcfa;
-}
-
-.testimonials h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.testimonials .subtitle {
-  color: #666;
-  margin-bottom: 40px;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* exactly 2 columns */
-  gap: 25px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.testimonial-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 25px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  text-align: left;
-}
-
-.stars {
-  color: #f4a261;
-  font-size: 18px;
-  margin-bottom: 12px;
-}
-
-.review {
-  font-size: 14px;
-  margin-bottom: 20px;
-  color: #555;
-}
-
-.author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.avatar {
-  background: #111;
-  color: #fff;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-}
-
-/* Community Section */
-.community {
-  text-align: center;
-  padding: 60px;
-  background: #111;
-  color: #fff;
-}
-
-.community h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
-}
-
-.community p {
-  margin-bottom: 25px;
-  color: #ccc;
-}
-
-.subscribe-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.subscribe-form input {
-  padding: 12px;
-  border-radius: 8px;
-  border: none;
-  width: 280px;
-}
-
-.subscribe-form button {
-  background: #fff;
-  color: #111;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-/* Footer */
-.footer {
-  background: #0a0a1a;
-  color: #fff;
-  padding: 60px;
-  margin-top: 40px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer .logo {
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.footer .logo-box {
-  background: #fff;
-  color: #111;
-  font-weight: bold;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-right: 8px;
-}
-
-.footer-about p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  color: #ccc;
-}
-
-.socials {
-  display: flex;
-  gap: 12px;
-  font-size: 18px;
-  color: #fff;
-}
-
-.socials i {
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.socials i:hover {
-  color: #1da1f2;
-}
-
-.footer-links h4,
-.footer-contact h4 {
-  font-size: 16px;
-  margin-bottom: 15px;
-  color: #fff;
-}
-
-.footer-links ul {
-  list-style: none;
-}
-
-.footer-links ul li {
-  margin-bottom: 10px;
-}
-
-.footer-links ul li a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-
-.footer-links ul li a:hover {
-  color: #fff;
-}
-
-.footer-contact p {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: #ccc;
-}
-
-.footer-contact i {
-  margin-right: 8px;
-  color: #fff;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  font-size: 13px;
-  color: #bbb;
-}
-
-.footer-policies a {
-  color: #bbb;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-policies a:hover {
-  color: #fff;
+  color: black;
 }
 
 /* Cart Page Styles */
@@ -2260,6 +687,211 @@ body {
   object-fit: contain;
   margin-right: 20px;
 }
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 2px solid #ddd;
+}
+
+.empty-cart-message {
+  text-align: center;
+  color: #777;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+/* ===============================
+   MINI CART PREVIEW
+================================= */
+.cart {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-preview {
+  position: absolute;
+  right: 0;
+  top: 35px;
+  width: 260px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  padding: 15px;
+  display: none;
+  z-index: 1000;
+}
+
+.cart:hover .cart-preview {
+  display: block;
+}
+
+.cart-preview::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.cart-preview h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.cart-preview ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.cart-preview ul li {
+  font-size: 14px;
+  padding: 5px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cart-preview .cart-total {
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.cart-preview .view-cart-btn {
+  width: 100%;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 8px 0;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cart-preview .view-cart-btn:hover {
+  background-color: #444;
+}
+
+/* Featured Jerseys */
+.featured {
+  text-align: center;
+  padding: 60px;
+  background: #fff;
+}
+
+.featured h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.featured .subtitle {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* Product Card Fix */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: #111;
+}
+
+.card p {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.card .price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+/* Center Add to Cart Button */
+.card .btn.primary {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  align-self: center;
+}
+
+.card .btn.primary:hover {
+  background-color: #b22234;
+}
+
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.badge.hot { background: #ff6600; }
+.badge.sale { background: #e63946; }
+.badge.new { background: #2a9d8f; }
+.badge.best { background: #f4a261; }
+
+/* Shop by League Cards */
+
+
 
 .item-details {
   flex-grow: 1;
@@ -2302,31 +934,11 @@ body {
   margin-left: 20px;
 }
 
-.cart-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
-  padding: 20px;
-  border-top: 2px solid #ddd;
-}
-
 .total-price-box {
   display: flex;
   gap: 10px;
   font-size: 1.5rem;
   font-weight: bold;
-}
-
-.checkout-btn {
-  padding: 15px 30px;
-}
-
-.empty-cart-message {
-  text-align: center;
-  color: #777;
-  font-size: 1.2rem;
-  margin-top: 40px;
 }
 
 /* New Checkout Page Styles */
@@ -2435,12 +1047,109 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
 }
-
+#checkout {
+background: #111;
+  color: #fff;
+  padding: 10px 20px;   /* smaller padding */
+  border: none;
+  border-radius: 6px;   /* slightly smaller round corners */
+  font-size: 0.9rem;    /* smaller text */
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
 .checkout-btn {
   width: 100%;
   margin-top: auto;
 }
 
+/* Login Page Specific Styles */
+    .login-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 80px); /* Adjust for navbar height */
+      padding: 20px;
+    }
+
+    .login-container, .register-container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      display: none; /* Hide both by default */
+    }
+
+    .login-container.active, .register-container.active {
+        display: block; /* Show active form */
+    }
+
+    .login-container h2, .register-container h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .form-group input, .form-group select {
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .btn.primary {
+      background: black;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+
+    .btn.primary:hover {
+      background: #333;
+    }
+    
+    .link-text {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .link-text a {
+        color: #007bff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .error-message {
+      color: #e63946;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    .success-message {
+      color: #2a9d8f;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
 @media (max-width: 768px) {
   .checkout-container {
     flex-direction: column;
