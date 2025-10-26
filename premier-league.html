@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Premier League Jerseys - JerseyStore</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-   <script src="Storelogic.js"></script>
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo"><span class="logo-box">JS</span> JerseyStore</div>
@@ -19,21 +21,38 @@
         <li><a href="laliga.html">La Liga</a></li>
         <li><a href="seriea.html">Serie A</a></li>
         <li><a href="bundesliga.html">Bundesliga</a></li>
-         <li><a href="retro.html">Retro</a></li>
+        <li><a href="retro.html">Retro</a></li>
       </ul>
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search jerseys..." class="search"/>
-      
+      <input type="text" placeholder="Search jerseys..." class="search" />
+
       <div class="cart">
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+      </div>
 
-      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
-    </div>
+<!-- ===== NEW PROFILE DROPDOWN ===== -->
+      <div class="profile-container">
+        <!-- Logged-out state (visible by default) -->
+        <a id="profile-icon-logged-out" class="profile-link" href="login.html">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
 
-    </div>
-    </div>
+        <!-- Logged-in state (hidden by default) -->
+        <div id="profile-logged-in" style="display: none;">
+          <button id="profile-greeting" class="profile-btn">
+            <!-- Name will be inserted here by JS -->
+            <span>Hi, <span id="user-firstname">User</span></span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown-content">
+            <a href="account.html">My Account</a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END PROFILE DROPDOWN ===== -->    </div>
   </header>
 
   <!-- Hero -->
@@ -51,32 +70,128 @@
     <div class="jersey-grid">
       <!-- Example Jerseys -->
       <div class="card">
-        <div class="badge hot">Hot</div>
-        <img src="images/rashford.jpg" alt="Manchester United Jersey">
+        <img src="images/premier-league/ManchesterUnited24-25.jpg" alt="Manchester United Home Jersey 24/25">
         <h3>Manchester United Home 24/25</h3>
-        <p class="price">$89.99<span class= "old-price">$120</span></p>
-        <div class="rating">⭐ 4.8</div>
-        <button class="btn primary">Add to Cart</button>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/ManchesterCity24-25.jpg" alt="Manchester City Home Jersey 24/25">
+        <h3>Manchester City Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/LiverpoolFC24-25.jpg" alt="Liverpool Home Jersey 24/25">
+        <h3>Liverpool Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/TottenhamHotspur24-25.jpg" alt="Tottenham Hotspur Home Jersey 24/25">
+        <h3>Tottenham Hotspur Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/NewcastleUnited24-25.jpg" alt="Newcastle United Home Jersey 24/25">
+        <h3>Newcastle United Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/WestHamUnited24-25.jpg" alt="West Ham United Home Jersey 24/25">
+        <h3>West Ham United Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/WolverhamptonWanderers24-25.jpg"
+          alt="Wolverhampton Wanderers Home Jersey 24/25">
+        <h3>Wolverhampton Wanderers Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/NottinghamForest24-25.jpg" alt="Nottingham Forest Home Jersey 24/25">
+        <h3>Nottingham Forest Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/LeicesterCity24-25.jpg" alt="Leicester City Home Jersey 24/25">
+        <h3>Leicester City Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/SouthhamptonFC24-25.jpg" alt="Southampton Home Jersey 24/25">
+        <h3>Southampton Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
       </div>
       <div class="card">
-        <img src="images/palmer.jpeg" alt="Chelsea Jersey">
-        <h3>Chelsea Away 24/25</h3>
-        <p class="price">$84.99<span class= "old-price">$115</span></p>
-        <div class="rating">⭐ 4.7</div>
-        <button class="btn primary">Add to Cart</button>
+        <img src="images/premier-league/ArsenalFC24-25.jpg" alt="Arsenal Home Jersey 24/25">
+        <h3>Arsenal Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
       </div>
+
       <div class="card">
-        <img src="images/salah.webp" alt="Liverpool Jersey">
-        <h3>Liverpool Third 24/25</h3>
-        <p class="price">$79.99<span class= "old-price">$110</span></p>
-        <div class="rating">⭐ 4.6</div>
-        <button class="btn primary">Add to Cart</button>
+        <img src="images/premier-league/AstonVilla24-25.jpg" alt="Aston Villa Home Jersey 24/25">
+        <h3>Aston Villa Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
       </div>
-    </div>
+
+      <div class="card">
+        <img src="images/premier-league/AFCBournemouth24-25.jpg" alt="AFC Bournemouth Home Jersey 24/25">
+        <h3>AFC Bournemouth Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/BrentfordFC24-25.jpg" alt="Brentford Home Jersey 24/25">
+        <h3>Brentford Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/Brighton24-25.jpg" alt="Brighton & Hove Albion Home Jersey 24/25">
+        <h3>Brighton & Hove Albion Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/Chelsea24-25.jpg" alt="Chelsea Home Jersey 24/25">
+        <h3>Chelsea Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/CrystalPalce24-25.jpg" alt="Crystal Palace Home Jersey 24/25">
+        <h3>Crystal Palace Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/EvertonFC24-25.jpg" alt="Everton Home Jersey 24/25">
+        <h3>Everton Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/FulhamFC24-25.jpg" alt="Fulham Home Jersey 24/25">
+        <h3>Fulham Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/premier-league/IpswichTown24-25.jpg" alt="Ipswich Town Home Jersey 24/25">
+        <h3>Ipswich Town Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
   </section>
 
 
- <!-- Footer -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-about">
@@ -101,7 +216,7 @@
       </div>
       <div class="footer-links">
         <h4>Categories</h4>
-       <ul>
+        <ul>
           <li><a href="premier-league.html">Premier League</a></li>
           <li><a href="laliga.html">La Liga</a></li>
           <li><a href="seriea.html">Serie A</a></li>
@@ -126,4 +241,6 @@
     </div>
   </footer>
 </body>
+<script src="Storelogic.js"></script>
+
 </html>

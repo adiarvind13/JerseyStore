@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout - JerseyStore</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 </head>
+
 <body>
   <!-- Navbar -->
   <header class="navbar">
@@ -25,17 +28,37 @@
       </ul>
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search jerseys..." class="search"/>
-      
+      <input type="text" placeholder="Search jerseys..." class="search" />
+
       <div class="cart">
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+      </div>
 
-      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
-    </div>
+<!-- ===== NEW PROFILE DROPDOWN ===== -->
+      <div class="profile-container">
+        <!-- Logged-out state (visible by default) -->
+        <a id="profile-icon-logged-out" class="profile-link" href="login.html">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
+
+        <!-- Logged-in state (hidden by default) -->
+        <div id="profile-logged-in" style="display: none;">
+          <button id="profile-greeting" class="profile-btn">
+            <!-- Name will be inserted here by JS -->
+            <span>Hi, <span id="user-firstname">User</span></span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown-content">
+            <a href="account.html">My Account</a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END PROFILE DROPDOWN ===== -->    </div>
 
     </div>
-  </div>
+    </div>
   </header>
 
   <main class="checkout-page">
@@ -70,8 +93,7 @@
           </div>
         </form>
       </div>
-      
-        </div>
+      <div class="checkout-actions">
         <button class="btn primary checkout-btn" id="place-order-btn">Place Order</button>
       </div>
     </div>
@@ -128,5 +150,5 @@
   </footer>
   <script src="Storelogic.js"></script>
 </body>
-</html>
 
+</html>

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La Liga Jerseys - JerseyStore</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-  <script src="Storelogic.js"></script>
   <!-- Navbar -->
   <header class="navbar">
 
@@ -16,63 +18,170 @@
     <nav>
       <ul>
         <li><a href="homepage.html">Home</a></li>
-        <li><a href="premier-league.html" >Premier League</a></li>
-        <li><a href="laliga.html"  class="active">La Liga</a></li>
+        <li><a href="premier-league.html">Premier League</a></li>
+        <li><a href="laliga.html" class="active">La Liga</a></li>
         <li><a href="seriea.html">Serie A</a></li>
         <li><a href="bundesliga.html">Bundesliga</a></li>
-         <li><a href="retro.html">Retro</a></li>
+        <li><a href="retro.html">Retro</a></li>
       </ul>
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search jerseys..." class="search"/>
-      
+      <input type="text" placeholder="Search jerseys..." class="search" />
+
       <div class="cart">
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+      </div>
 
-      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
-    </div>
+<!-- ===== NEW PROFILE DROPDOWN ===== -->
+      <div class="profile-container">
+        <!-- Logged-out state (visible by default) -->
+        <a id="profile-icon-logged-out" class="profile-link" href="login.html">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
 
-    </div>
-    </div>
+        <!-- Logged-in state (hidden by default) -->
+        <div id="profile-logged-in" style="display: none;">
+          <button id="profile-greeting" class="profile-btn">
+            <!-- Name will be inserted here by JS -->
+            <span>Hi, <span id="user-firstname">User</span></span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown-content">
+            <a href="account.html">My Account</a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END PROFILE DROPDOWN ===== -->    </div>
   </header>
   <!-- Hero -->
-  <section class="hero laliga-hero"> ">
+  <section class="hero laliga-hero">
     <div class="hero-text">
       <h1>La Liga</h1>
       <p>Shop official kits from your favorite Spanish clubs</p>
     </div>
   </section>
 
-<section class="featured">
-  <h2>La Liga Jerseys</h2>
-  <p class="subtitle">Official kits from Spanish giants</p>
-  <div class="jersey-grid">
-    <div class="card">
-      <div class="badge sale">Sale</div>
-      <img src="images/yamal.webp" alt="Barcelona Jersey">
-      <h3>FC Barcelona Home Jersey 2024/25</h3>
-      <p class="price">$85.99 <span class="old-price">$115</span></p>
-      <div class="rating">⭐ 4.9</div>
-      <button class="btn primary">Add to Cart</button>
+  <section class="featured">
+    <h2>La Liga Jerseys</h2>
+    <p class="subtitle">Official kits from Spanish giants</p>
+    <div class="jersey-grid">
+      <div class="card">
+        <img src="images/la-liga/FCBarcelona24-25.jpg" alt="FC Barcelona Home Jersey 24/25">
+        <h3>FC Barcelona Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/AtleticoMadrid24-25.jpg" alt="Atlético Madrid Home Jersey 24/25">
+        <h3>Atlético Madrid Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/AthleticClub24-25.jpg" alt="Athletic Club Home Jersey 24/25">
+        <h3>Athletic Club Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/GironaFC24-25.jpg" alt="Girona FC Home Jersey 24/25">
+        <h3>Girona FC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/GetafeCF24-25.jpg" alt="Getafe CF Home Jersey 24/25">
+        <h3>Getafe CF Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/CeltaVigo24-25.jpg" alt="Celta Vigo Home Jersey 24/25">
+        <h3>Celta Vigo Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/CAOsasuna24-25.jpg" alt="CA Osasuna Home Jersey 24/25">
+        <h3>CA Osasuna Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/DeportivoAlaves24-25.jpg" alt="Deportivo Alavés Home Jersey 24/25">
+        <h3>Deportivo Alavés Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/RayoVallecano24-25.jpg" alt="Rayo Vallecano Home Jersey 24/25">
+        <h3>Rayo Vallecano Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/CDLeganes24-25.jpg" alt="CD Leganés Home Jersey 24/25">
+        <h3>CD Leganés Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+      <div class="card">
+        <img src="images/la-liga/RealMadrid24-25.jpg" alt="Real Madrid Home Jersey 24/25">
+        <h3>Real Madrid Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/RealBetis24-25.jpg" alt="Real Betis Home Jersey 24/25">
+        <h3>Real Betis Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/SevillaFC24-25.jpg" alt="Sevilla FC Home Jersey 24/25">
+        <h3>Sevilla FC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/VillarrealCF24-25.jpg" alt="Villarreal CF Home Jersey 24/25">
+        <h3>Villarreal CF Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/ValenciaCF24-25.jpg" alt="Valencia CF Home Jersey 24/25">
+        <h3>Valencia CF Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/UDLasPalmas24-25.jpg" alt="UD Las Palmas Home Jersey 24/25">
+        <h3>UD Las Palmas Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/RCDMallorca.jpg" alt="RCD Mallorca Home Jersey 24/25">
+        <h3>RCD Mallorca Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/RealValladolid24-25.jpg" alt="Real Valladolid Home Jersey 24/25">
+        <h3>Real Valladolid Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/la-liga/RCDEspanyol24-25.jpg" alt="RCD Espanyol Home Jersey 24/25">
+        <h3>RCD Espanyol Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
     </div>
-    <div class="card">
-      <img src="images/mbappe.webp" alt="Real Madrid Jersey">
-      <h3>Real Madrid Home Jersey 2024/25</h3>
-      <p class="price">$92.99 <span class="old-price">$125</span></p>
-      <div class="rating">⭐ 4.9</div>
-      <button class="btn primary">Add to Cart</button>
-    </div>
-    <div class="card">
-      <img src="images/greizman.jpeg" alt="Atletico Madrid Jersey">
-      <h3>Atletico Madrid Jersey 2024/25</h3>
-      <p class="price">$92.99 <span class="old-price">$125</span></p>
-      <div class="rating">⭐ 4.9</div>
-      <button class="btn primary">Add to Cart</button>
-    </div>
-  </div>
-</section>
- <!-- Footer -->
+  </section>
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-about">
@@ -121,3 +230,7 @@
       </div>
     </div>
   </footer>
+</body>
+<script src="Storelogic.js"></script>
+
+</html>

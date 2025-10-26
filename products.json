@@ -1,38 +1,62 @@
 {
   "manutd": {
     "name": "Manchester United Home Jersey 2024/25",
-    "price": 89.99,
-    "oldPrice": 120,
+    "price": 4899,
+    "oldPrice": 6599,
     "rating": 4.8,
     "image": "images/rashford.jpg",
     "description": "Official Adidas Manchester United Home Jersey 2024/25. Lightweight, breathable, and made with 100% recycled polyester.",
     "reviews": [
-      { "stars": 5, "text": "The quality is excellent, feels premium!", "author": "Alex, London" },
-      { "stars": 4, "text": "Delivery was a bit slow but authentic.", "author": "Priya, Mumbai" }
+      {
+        "stars": 5,
+        "text": "The quality is excellent, feels premium!",
+        "author": "Alex, London"
+      },
+      {
+        "stars": 4,
+        "text": "Delivery was a bit slow but authentic.",
+        "author": "Priya, Mumbai"
+      }
     ]
   },
   "barca": {
     "name": "FC Barcelona Home Jersey 2024/25",
-    "price": 85.99,
-    "oldPrice": 115,
+    "price": 4699,
+    "oldPrice": 6299,
     "rating": 4.9,
     "image": "images/imagesmessi.jpeg",
     "description": "Authentic Nike FC Barcelona Jersey 2024/25. Lightweight Dri-FIT fabric keeps you cool on the pitch.",
     "reviews": [
-      { "stars": 5, "text": "Amazing jersey, fits perfectly!", "author": "Carlos, Madrid" },
-      { "stars": 5, "text": "Great color and texture.", "author": "Liam, Dublin" }
+      {
+        "stars": 5,
+        "text": "Amazing jersey, fits perfectly!",
+        "author": "Carlos, Madrid"
+      },
+      {
+        "stars": 5,
+        "text": "Great color and texture.",
+        "author": "Liam, Dublin"
+      }
     ]
   },
   "dortmund": {
     "name": "Borussia Dortmund Jersey 2024/25",
-    "price": 79.99,
-    "oldPrice": 110,
+    "price": 4299,
+    "oldPrice": 5999,
     "rating": 4.7,
     "image": "images/puma_borussia_dortmund_home_2018_bundesliga_jersey_40525_1_20211018204313.webp",
     "description": "PUMA Borussia Dortmund Home Jersey 2024/25. Classic yellow design with breathable mesh.",
     "reviews": [
-      { "stars": 5, "text": "Love the design!", "author": "Hans, Berlin" },
-      { "stars": 4, "text": "Good fit and comfortable.", "author": "Marco, Munich" }
+      {
+        "stars": 5,
+        "text": "Love the design!",
+        "author": "Hans, Berlin"
+      },
+      {
+        "stars": 4,
+        "text": "Good fit and comfortable.",
+        "author": "Marco, Munich"
+      }
     ]
   }
 }

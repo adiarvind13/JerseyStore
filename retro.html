@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retro Jerseys - JerseyStore</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body>
+
+<body class="retro-theme">
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo"><span class="logo-box">JS</span> JerseyStore</div>
@@ -22,14 +25,34 @@
       </ul>
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search jerseys..." class="search"/>
-      
-      <div class="cart">
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+      <input type="text" placeholder="Search jerseys..." class="search" />
 
-      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
-    </div>
+      <div class="cart">
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: #d6d6d6;"></i></a>
+      </div>
+
+<!-- ===== NEW PROFILE DROPDOWN ===== -->
+      <div class="profile-container">
+        <!-- Logged-out state (visible by default) -->
+        <a id="profile-icon-logged-out" class="profile-link" href="login.html">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
+
+        <!-- Logged-in state (hidden by default) -->
+        <div id="profile-logged-in" style="display: none;">
+          <button id="profile-greeting" class="profile-btn">
+            <!-- Name will be inserted here by JS -->
+            <span>Hi, <span id="user-firstname">User</span></span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown-content">
+            <a href="account.html">My Account</a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END PROFILE DROPDOWN ===== -->    </div>
 
     </div>
     </div>
@@ -38,9 +61,9 @@
   <!-- Hero -->
   <section class="hero retro-hero">
     <div class="hero-text">
-     <!-- <h1>Retro Editions</h1>
+      <h1>Retro Editions</h1>
       <p>Limited releases, retro designs, and collector’s items. Grab yours before they’re gone!</p>
-    </div>-->
+    </div>
   </section>
 
   <!-- Featured Jerseys -->
@@ -50,40 +73,90 @@
     <div class="jersey-grid">
 
       <div class="card">
-        <img src="images/fcbretro.jpg" alt="Retro Barcelona Jersey">
-        <h3>FC Barcelona Retro 1992 Jersey</h3>
-        <p class="price">$120.00</p>
-        <div class="rating">⭐ 5.0</div>
-        <button class="btn primary">Add to Cart</button>
+        <img src="images/retro/FCBarcelona99-00.jpg" alt="FC Barcelona Retro Jersey 99/00">
+        <h3>FC Barcelona Retro 99/00</h3>
+        <p class="price">₹6,599</p>
       </div>
 
       <div class="card">
-        <img src="images/rmdretro.jpg" alt="Real Madrid Retro Jersey">
-        <h3>Real Madrid Retro Jersey</h3>
-        <p class="price">$140.00</p>
-        <div class="rating">⭐ 5.0</div>
-        <button class="btn primary">Add to Cart</button>
+        <img src="images/retro/FCBarcelona00-01jpg.jpg" alt="FC Barcelona Retro Jersey 00/01">
+        <h3>FC Barcelona Retro 00/01</h3>
+        <p class="price">₹6,599</p>
+      </div>
+      <div class="card">
+        <img src="images/retro/ManchesterUnited98-99.jpg" alt="Manchester United Retro Jersey 98/99">
+        <h3>Manchester United Retro 98/99</h3>
+        <p class="price">₹7,099</p>
       </div>
 
       <div class="card">
-        <img src="images/manuretro.webp" alt="ManU Iconic Jersey">
-        <h3>Manchester United Retro Jersey</h3>
-        <p class="price">$130.00</p>
-        <div class="rating">⭐ 5.0</div>
-        <button class="btn primary">Add to Cart</button>
+        <img src="images/retro/ManchesterUnited00-01jpg.jpg" alt="Manchester United Retro Jersey 00/01">
+        <h3>Manchester United Retro 00/01</h3>
+        <p class="price">₹7,099</p>
       </div>
 
       <div class="card">
-        <img src="images/acretro.webp" alt="AC Milan Retro Jersey">
-        <h3>AC Milan 1994 Retro Jersey</h3>
-        <p class="price">$115.00</p>
-        <div class="rating">⭐ 5.0</div>
-        <button class="btn primary">Add to Cart</button>
+        <img src="images/retro/ManchesterUnited04-05jpg.jpg" alt="Manchester United Retro Jersey 04/05">
+        <h3>Manchester United Retro 04/05</h3>
+        <p class="price">₹7,099</p>
       </div>
 
+      <div class="card">
+        <img src="images/retro/ManchesterUnited07-08jpg.jpg" alt="Manchester United Retro Jersey 07/08">
+        <h3>Manchester United Retro 07/08</h3>
+        <p class="price">₹7,099</p>
+      </div>
+
+      <div class="card">
+        <img src="images/retro/ACMilan95-96.jpg" alt="AC Milan Retro Jersey 95/96">
+        <h3>AC Milan Retro 95/96</h3>
+        <p class="price">₹6,299</p>
+      </div>
+
+      <div class="card">
+        <img src="images/retro/ACMilan06-07.jpg" alt="AC Milan Retro Jersey 06/07">
+        <h3>AC Milan Retro 06/07</h3>
+        <p class="price">₹6,299</p>
+      </div>
+
+      <div class="card">
+        <img src="images/retro/InterMilan99-00.jpg" alt="Inter Milan Retro Jersey 99/00">
+        <h3>Inter Milan Retro 99/00</h3>
+        <p class="price">₹6,899</p>
+      </div>
+
+      <div class="card">
+        <img src="images/retro/InterMilan06-07.jpg" alt="Inter Milan Retro Jersey 06/07">
+        <h3>Inter Milan Retro 06/07</h3>
+        <p class="price">₹6,899</p>
+      </div>
+
+      <div class="card">
+        <img src="images/retro/InterMilan08-09.jpg" alt="Inter Milan Retro Jersey 08/09">
+        <h3>Inter Milan Retro 08/09</h3>
+        <p class="price">₹6,899</p>
+      </div>
+      <div class="card">
+        <img src="images/retro/RealMadrid99-00.jpg" alt="Real Madrid Retro Jersey 99/00">
+        <h3>Real Madrid Retro 99/00</h3>
+        <p class="price">₹7,599</p>
+      </div>
+
+      <div class="card">
+        <img src="images/retro/RealMadrid08-09jpg.jpg" alt="Real Madrid Retro Jersey 08/09">
+        <h3>Real Madrid Retro 08/09</h3>
+        <p class="price">₹7,599</p>
+      </div>
+
+      <div class="card">
+        <img src="images/retro/NewcastleUnited99-00.jpg" alt="Newcastle United Retro Jersey 99/00">
+        <h3>Newcastle United Retro 99/00</h3>
+        <p class="price">₹6,999</p>
+      </div>
     </div>
   </section>
- <!-- Footer -->
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-about">
@@ -134,4 +207,5 @@
   </footer>
   <script src="Storelogic.js"></script>
 </body>
+
 </html>

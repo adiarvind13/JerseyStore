@@ -1,121 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart - JerseyStore</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<style>
-
-/* Cart Page Styles */
-.cart-page {
-  padding: 60px 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.cart-page h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-}
-
-.cart-items {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.cart-item {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  justify-content: space-between;
-}
-
-.cart-item img {
-  width: 80px;
-  height: 80px;
-  border-radius: 8px;
-  object-fit: contain;
-  margin-right: 20px;
-}
-
-.item-details {
-  flex-grow: 1;
-}
-
-.item-details h3 {
-  font-size: 1.2rem;
-  text-align: left;
-}
-
-.item-details .item-price {
-  font-weight: bold;
-  color: #555;
-  margin-top: 5px;
-  text-align: left;
-}
-
-.item-quantity {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.quantity-btn {
-  width: 30px;
-  height: 30px;
-  background: #eee;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.remove-btn {
-  background: #e63946;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-left: 20px;
-}
-
-.cart-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
-  padding: 20px;
-  border-top: 2px solid #ddd;
-}
-
-.total-price-box {
-  display: flex;
-  gap: 10px;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.checkout-btn {
-  padding: 15px 30px;
-}
-
-.empty-cart-message {
-  text-align: center;
-  color: #777;
-  font-size: 1.2rem;
-  margin-top: 40px;
-}
-
-</style>
 </head>
+
 <body>
   <!-- Navbar -->
   <header class="navbar">
@@ -127,20 +22,38 @@
         <li><a href="laliga.html">La Liga</a></li>
         <li><a href="seriea.html">Serie A</a></li>
         <li><a href="bundesliga.html">Bundesliga</a></li>
-         <li><a href="retro.html">Retro</a></li>
+        <li><a href="retro.html">Retro</a></li>
       </ul>
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search jerseys..." class="search"/>
-      
+      <input type="text" placeholder="Search jerseys..." class="search" />
+
       <div class="cart">
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+      </div>
 
-      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
-    </div>
+<!-- ===== NEW PROFILE DROPDOWN ===== -->
+      <div class="profile-container">
+        <!-- Logged-out state (visible by default) -->
+        <a id="profile-icon-logged-out" class="profile-link" href="login.html">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
 
-    </div>
+        <!-- Logged-in state (hidden by default) -->
+        <div id="profile-logged-in" style="display: none;">
+          <button id="profile-greeting" class="profile-btn">
+            <!-- Name will be inserted here by JS -->
+            <span>Hi, <span id="user-firstname">User</span></span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown-content">
+            <a href="account.html">My Account</a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END PROFILE DROPDOWN ===== -->    </div>
   </header>
 
   <!-- Cart Section -->
@@ -152,61 +65,24 @@
     <div class="cart-summary">
       <div class="total-price-box">
         <p>Total:</p>
-        <p class="total-price">$0.00</p>
+        <p class="total-price">₹0.00</p>
       </div>
-      <a href="checkout.html" id="checkout">Proceed to Checkout</a>
+      
+      <!-- ===== THIS LINE IS UPDATED ===== -->
+      <!-- I changed this from an <a> tag to a <button> tag -->
+      <!-- This lets our JavaScript check for login before redirecting. -->
+      <button class="btn primary" id="checkout">Proceed to Checkout</button>
+      
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-about">
-        <div class="logo"><span class="logo-box">JS</span> JerseyStore</div>
-        <p>Your trusted source for authentic football jerseys from the world's top teams and leagues.</p>
-        <div class="socials">
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-twitter"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-youtube"></i>
-        </div>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Size Guide</a></li>
-          <li><a href="#">Shipping Info</a></li>
-          <li><a href="#">Returns & Exchanges</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Categories</h4>
-        <ul>
-          <li><a href="premier-league.html">Premier League</a></li>
-          <li><a href="laliga.html">La Liga</a></li>
-          <li><a href="seriea.html">Serie A</a></li>
-          <li><a href="bundesliga.html">Bundesliga</a></li>
-          <li><a href="retro.html">Retro</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Contact Us</h4>
-        <p><i class="fa-solid fa-envelope"></i> support@jerseystore.com</p>
-        <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
-        <p><i class="fa-solid fa-location-dot"></i> Kanjirappally, Kerala</p>
-      </div>
-    </div>
     <div class="footer-bottom">
       <p>© 2025 JerseyStore. All rights reserved.</p>
-      <div class="footer-policies">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies</a>
-      </div>
     </div>
   </footer>
   <script src="Storelogic.js"></script>
 </body>
+
 </html>

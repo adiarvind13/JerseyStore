@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bundesliga Jerseys - JerseyStore</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-   <script src="Storelogic.js"></script>
+
   <!-- Navbar -->
   <header class="navbar">
-   
+
     <div class="logo"><span class="logo-box">JS</span> JerseyStore</div>
     <nav>
       <ul>
@@ -19,22 +22,39 @@
         <li><a href="premier-league.html">Premier League</a></li>
         <li><a href="laliga.html">La Liga</a></li>
         <li><a href="seriea.html">Serie A</a></li>
-        <li><a href="bundesliga.html"  class="active">Bundesliga</a></li>
-         <li><a href="retro.html">Retro</a></li>
+        <li><a href="bundesliga.html" class="active">Bundesliga</a></li>
+        <li><a href="retro.html">Retro</a></li>
       </ul>
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search jerseys..." class="search"/>
-      
+      <input type="text" placeholder="Search jerseys..." class="search" />
+
       <div class="cart">
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+      </div>
 
-      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
-    </div>
+<!-- ===== NEW PROFILE DROPDOWN ===== -->
+      <div class="profile-container">
+        <!-- Logged-out state (visible by default) -->
+        <a id="profile-icon-logged-out" class="profile-link" href="login.html">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
 
-    </div>
-  </div>
+        <!-- Logged-in state (hidden by default) -->
+        <div id="profile-logged-in" style="display: none;">
+          <button id="profile-greeting" class="profile-btn">
+            <!-- Name will be inserted here by JS -->
+            <span>Hi, <span id="user-firstname">User</span></span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown-content">
+            <a href="account.html">My Account</a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END PROFILE DROPDOWN ===== -->    </div>
   </header>
   <!-- Hero -->
   <section class="hero bundesliga-hero">
@@ -44,35 +64,121 @@
     </div>
   </section>
 
-<section class="featured">
-  <h2>Bundesliga Jerseys</h2>
-  <p class="subtitle">German champions and stars</p>
-  <div class="jersey-grid">
-    <div class="card">
-      <img src="images/musiala.jpg" alt="Bayern Munich Jersey">
-      <h3>Bayern Munich Home Jersey 2024/25</h3>
-      <p class="price">$90.99 <span class="old-price">$120</span></p>
-      <div class="rating">⭐ 4.9</div>
-      <button class="btn primary">Add to Cart</button>
+  <section class="featured">
+    <h2>Bundesliga Jerseys</h2>
+    <p class="subtitle">German champions and stars</p>
+    <div class="jersey-grid">
+      <div class="card">
+        <img src="images/bundesliga/BayernMunchen24-25.jpg" alt="Bayern München Home Jersey 24/25">
+        <h3>Bayern München Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/BVB24-25.jpg" alt="Borussia Dortmund Home Jersey 24/25">
+        <h3>Borussia Dortmund Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/Bayer04Leverkusen24-25.jpg" alt="Bayer 04 Leverkusen Home Jersey 24/25">
+        <h3>Bayer 04 Leverkusen Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/EintrachtFrankfurt24-25.jpg" alt="Eintracht Frankfurt Home Jersey 24/25">
+        <h3>Eintracht Frankfurt Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/BorussiaMonchengladbach24-25.jpg" alt="Borussia Mönchengladbach Home Jersey 24/25">
+        <h3>Borussia Mönchengladbach Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/FCAugsburg24-25.jpg" alt="FC Augsburg Home Jersey 24/25">
+        <h3>FC Augsburg Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/FSVMainz05-24-25.jpg" alt="FSV Mainz 05 Home Jersey 24/25">
+        <h3>FSV Mainz 05 Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/FCStPauli24-25.jpg" alt="FC St. Pauli Home Jersey 24/25">
+        <h3>FC St. Pauli Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/FCHeidenheim24-25.jpg" alt="FC Heidenheim Home Jersey 24/25">
+        <h3>FC Heidenheim Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/HolsteinKiel24-25.jpg" alt="Holstein Kiel Home Jersey 24/25">
+        <h3>Holstein Kiel Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+      <div class="card">
+        <img src="images/bundesliga/RBLeipzig24-25.jpg" alt="RB Leipzig Home Jersey 24/25">
+        <h3>RB Leipzig Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/VfBStuttgart24-25.jpg" alt="VfB Stuttgart Home Jersey 24/25">
+        <h3>VfB Stuttgart Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/SCfreiburg24-25.jpg" alt="SC Freiburg Home Jersey 24/25">
+        <h3>SC Freiburg Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/TSG1899Hoffenheim24-25.jpg" alt="TSG 1899 Hoffenheim Home Jersey 24/25">
+        <h3>TSG 1899 Hoffenheim Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/UnionBerlin24-25.jpg" alt="Union Berlin Home Jersey 24/25">
+        <h3>Union Berlin Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/VfLWolfsburg24-25.jpg" alt="VfL Wolfsburg Home Jersey 24/25">
+        <h3>VfL Wolfsburg Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/Werderbremen24-25.jpg" alt="Werder Bremen Home Jersey 24/25">
+        <h3>Werder Bremen Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/bundesliga/VfLBochum24-25.jpg" alt="VfL Bochum Home Jersey 24/25">
+        <h3>VfL Bochum Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
     </div>
-    <div class="card">
-      <div class="badge new">New</div>
-      <img src="images/moukoko.webp" alt="Borussia Dortmund Jersey">
-      <h3>Borussia Dortmund Home Jersey 2024/25</h3>
-      <p class="price">$82.99 <span class="old-price">$110</span></p>
-      <div class="rating">⭐ 4.8</div>
-      <button class="btn primary">Add to Cart</button>
-    </div>
-    <div class="card">
-      <img src="images/klostermann.jpg" alt="Leipzig Jersey">
-      <h3>Leipzig Home Jersey 2024/25</h3>
-      <p class="price">$82.99 <span class="old-price">$110</span></p>
-      <div class="rating">⭐ 4.8</div>
-      <button class="btn primary">Add to Cart</button>
-    </div>
-  </div>
-</section>
- <!-- Footer -->
+  </section>
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-about">
@@ -121,3 +227,7 @@
       </div>
     </div>
   </footer>
+</body>
+<script src="Storelogic.js"></script>
+
+</html>

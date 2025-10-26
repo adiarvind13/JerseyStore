@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serie A Jerseys - JerseyStore</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
+
 <body>
-   <script src="Storelogic.js"></script>
   <!-- Navbar -->
   <header class="navbar">
     <div class="logo"><span class="logo-box">JS</span> JerseyStore</div>
@@ -17,23 +19,40 @@
         <li><a href="homepage.html">Home</a></li>
         <li><a href="premier-league.html">Premier League</a></li>
         <li><a href="laliga.html">La Liga</a></li>
-        <li><a href="seriea.html"  class="active">Serie A</a></li>
+        <li><a href="seriea.html" class="active">Serie A</a></li>
         <li><a href="bundesliga.html">Bundesliga</a></li>
         <li><a href="retro.html">Retro</a></li>
       </ul>
     </nav>
     <div class="nav-right">
-      <input type="text" placeholder="Search jerseys..." class="search"/>
-      
+      <input type="text" placeholder="Search jerseys..." class="search" />
+
       <div class="cart">
-        <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-</div>
+        <a href="cart.html"><i class="fa-solid fa-cart-shopping" style="color: black;"></i></a>
+      </div>
 
-      <a href="login.html"><i class="fas fa-user-circle fa-2x" style="color: black;"></i></a>
-    </div>
+<!-- ===== NEW PROFILE DROPDOWN ===== -->
+      <div class="profile-container">
+        <!-- Logged-out state (visible by default) -->
+        <a id="profile-icon-logged-out" class="profile-link" href="login.html">
+          <i class="fas fa-user-circle fa-2x"></i>
+        </a>
 
-    </div>
-    </div>
+        <!-- Logged-in state (hidden by default) -->
+        <div id="profile-logged-in" style="display: none;">
+          <button id="profile-greeting" class="profile-btn">
+            <!-- Name will be inserted here by JS -->
+            <span>Hi, <span id="user-firstname">User</span></span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div id="profile-dropdown" class="profile-dropdown-content">
+            <a href="account.html">My Account</a>
+            <a href="my-orders.html">My Orders</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END PROFILE DROPDOWN ===== -->    </div>
   </header>
   <!-- Hero -->
   <section class="hero seriea-hero">
@@ -42,47 +61,133 @@
       <p>Shop official kits from your favorite Italian clubs</p>
     </div>
   </section>
-<section class="featured">
-  <h2>Serie A Jerseys</h2>
-  <p class="subtitle">Legendary Italian clubs</p>
-  <div class="jersey-grid">
-    <div class="card">
-        <div class="badge best">Best Seller</div>
-        <img src="images/acmilan.webp" alt="AC milan jersey">
-        <h3>AC milan jersey</h3>
-        <p class="price">$69.99 <span class="old-price">$95</span></p>
-        <div class="rating">⭐ 4.6</div>
-        <button class="btn primary">Add to Cart</button>
+  <section class="featured">
+    <h2>Serie A Jerseys</h2>
+    <p class="subtitle">Legendary Italian clubs</p>
+    <div class="jersey-grid">
+      <div class="card">
+        <img src="images/serie-a/ACMilan24-25.jpg" alt="AC Milan Home Jersey 24/25">
+        <h3>AC Milan Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
       </div>
 
-    <div class="card">
-      <img src="images/chiesa.webp" alt="Juventus Jersey">
-      <h3>Juventus Home Jersey 2024/25</h3>
-      <p class="price">$84.99 <span class="old-price">$110</span></p>
-      <div class="rating">⭐ 4.7</div>
-      <button class="btn primary">Add to Cart</button>
-    </div>
+      <div class="card">
+        <img src="images/serie-a/ASRoma24-25.jpg" alt="AS Roma Home Jersey 24/25">
+        <h3>AS Roma Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
 
-    <div class="card">
-      <img src="images/modric.webp" alt="AC Milan Jersey">
-      <h3>AC Milan Home Jersey 2024/25</h3>
-      <p class="price">$86.99 <span class="old-price">$115</span></p>
-      <div class="rating">⭐ 4.8</div>
-      <button class="btn primary">Add to Cart</button>
-    </div>
+      <div class="card">
+        <img src="images/serie-a/AtalantaBC24-25.jpg" alt="Atalanta BC Home Jersey 24/25">
+        <h3>Atalanta BC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
 
-    <div class="card">
-      <img src="images/dimarco.webp" alt="Inter Milan Jersey">
-      <h3>Inter Milan Home Jersey 2024/25</h3>
-      <p class="price">$86.99 <span class="old-price">$115</span></p>
-      <div class="rating">⭐ 4.8</div>
-      <button class="btn primary">Add to Cart</button>
+      <div class="card">
+        <img src="images/serie-a/BolognaFC24-25.jpg" alt="Bologna FC Home Jersey 24/25">
+        <h3>Bologna FC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/CagiliariCalcio24-25.jpg" alt="Cagliari Calcio Home Jersey 24/25">
+        <h3>Cagliari Calcio Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/Como1907-24-25.jpg" alt="Como 1907 Home Jersey 24/25">
+        <h3>Como 1907 Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/Empoli24-25.jpg" alt="Empoli Home Jersey 24/25">
+        <h3>Empoli Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/ACFFiorentina24-25.jpg" alt="ACF Fiorentina Home Jersey 24/25">
+        <h3>ACF Fiorentina Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/GenoaCFC24-25.jpg" alt="Genoa CFC Home Jersey 24/25">
+        <h3>Genoa CFC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/ACMonza24-25.jpg" alt="AC Monza Home Jersey 24/25">
+        <h3>AC Monza Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/InterMilan24-25.jpg" alt="Inter Milan Home Jersey 24/25">
+        <h3>Inter Milan Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/JuventusFC24-25.jpg" alt="Juventus FC Home Jersey 24/25">
+        <h3>Juventus FC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/SSCNapoli24-25.jpg" alt="SSC Napoli Home Jersey 24/25">
+        <h3>SSC Napoli Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/SSLazio24-25.jpg" alt="SS Lazio Home Jersey 24/25">
+        <h3>SS Lazio Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/TorinoFC24-25.jpg" alt="Torino FC Home Jersey 24/25">
+        <h3>Torino FC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/ParmaCalcio24-25.jpg" alt="Parma Calcio Home Jersey 24/25">
+        <h3>Parma Calcio Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/HellasVerona24-25.jpg" alt="Hellas Verona Home Jersey 24/25">
+        <h3>Hellas Verona Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/UdineseCalcio24-25.jpg" alt="Udinese Calcio Home Jersey 24/25">
+        <h3>Udinese Calcio Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/USLecce24-25.jpg" alt="US Lecce Home Jersey 24/25">
+        <h3>US Lecce Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
+      <div class="card">
+        <img src="images/serie-a/VeneziaFC24-25.jpg" alt="Venezia FC Home Jersey 24/25">
+        <h3>Venezia FC Home 24/25</h3>
+        <p class="price">₹4,899<span class="old-price">₹6,599</span></p>
+      </div>
+
     </div>
-   
-    </div>
-  </div>
-</section>
- <!-- Footer -->
+  </section>
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-about">
@@ -131,3 +236,7 @@
       </div>
     </div>
   </footer>
+</body>
+<script src="Storelogic.js"></script>
+
+</html>
